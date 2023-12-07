@@ -1,7 +1,14 @@
 from django.db import models
 
+from apps.categories.models import Category
+
 # Create your models here.
 class Post(models.Model):
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL,
+        related_name="category_posts",
+        blank=True, null=True
+    )
     title = models.CharField(
         max_length=255,
         verbose_name="Название"
