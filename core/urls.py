@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/posts/', include('apps.posts.urls')),
     path('api/categories/', include('apps.categories.urls')),
+    path('api/users/', include('apps.users.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
