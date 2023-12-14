@@ -8,6 +8,11 @@ class UserListCreateAPIView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return UserRegisterSerializer
+        return UserSerializer
+
 class UserRetrieveAPIView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
